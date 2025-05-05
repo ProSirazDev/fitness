@@ -1,54 +1,86 @@
-.header{
-    display:flex;
+/* Desktop styles */
+.header {
+    display: flex;
     justify-content: space-between;
-   
-}
-.logo{
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .logo {
     width: 10rem;
-    height:3rem
-}
-
-.header-menu{
+    height: 3rem;
+  }
+  
+  .header-menu {
     list-style: none;
     display: flex;
     gap: 2rem;
     color: white;
-}
-.menu-close{
-    display: flex;
-    justify-content: end;
-    font-size: 30px;
-    font-weight: bold;
-    color: red;
-    display: none;
-}
-.header-menu>li:hover{
+  }
+  
+  .header-menu > li:hover {
     color: var(--orange);
     cursor: pointer;
-}
-@media screen and (max-width: 768px) {
-    .header>:nth-child(2){
-        position: fixed;
-        right: 2rem;
-        z-index: 99;
+  }
+  
+  .menu-close {
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .menu-icon {
+    background-color: var(--appColor);
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  .bars {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  /* Mobile styles */
+  @media screen and (max-width: 768px) {
+    .header-menu.mobile-menu {
+      flex-direction: column;
+      position: fixed;
+      top: 0;                          /* ⬅️ No gap at top */
+      left: 0;
+      width: 100%;
+      background-color: var(--appColor);
+      padding: 3rem 1rem 2rem;
+      z-index: 99;
+      gap: 1.5rem;
+      align-items: center;             /* ⬅️ Center menu items */
+      text-align: center;
+      transition: all 0.3s ease-in-out;
     }
-    .header-menu{
-        flex-direction: column;
-        background-color: var(--appColor);
-        padding: 1rem 2rem;
+  
+    .header-menu li {
+      font-size: 1.2rem;
+      font-weight: bold;
+      width: 100%;
     }
-    .Logos>:nth-child(1){
-        height: 1rem;
-        width: 1rem;
+  
+    .menu-close {
+      display: block;
+      position: absolute;              /* ⬅️ Top right corner */
+      top: 1rem;
+      right: 0;
+      font-size: 2rem;
+      color: red;
+      background: none;
+      border: none;
+      z-index: 100;
     }
-    .Logos>:nth-child(2){
-        height: min-content;
-        width: min-content;
+  
+    .header-menu:not(.mobile-menu) {
+      display: none;
     }
-    .menu-close{
-        display: flex;
-    }
-    .bars{
-        display: flex;
-    }
-}
+  }
+  
